@@ -1,0 +1,15 @@
+# Deny some users to login
+auth required pam_listfile.so item=user sense=deny file=/etc/ftpusers onerr=succeed
+
+# Customized login using htpasswd file or Berkeley DB
+auth sufficient pam_pwdfile.so pwdfile /etc/vsftpd/passwd
+auth sufficient pam_userdb.so db=/etc/vsftpd/userdb
+
+account sufficient pam_permit.so
+account sufficient pam_userdb.so db=/etc/vsftpd/userdb
+
+# Standard pam auth including ldap
+@include common-auth
+@include common-account
+@include common-session
+
