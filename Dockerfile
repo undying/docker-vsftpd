@@ -11,16 +11,13 @@ RUN apt-get update && \
     libpam-pwdfile=1.0-1 \
     db-util=1:5.3.21~exp1ubuntu1 \
     libnss-ldap libpam-ldap \
-    nscd \
-    vim zsh ssh lftp
+    nscd
 
 COPY etc/ /etc/
 COPY bin/ /bin/
 COPY sbin/ /sbin/
 
-EXPOSE 20 21 22 10100 10101
-
-VOLUME [ "/home/ftp/" ]
+EXPOSE 20 21
 
 CMD [ "/sbin/init.sh" ]
 
