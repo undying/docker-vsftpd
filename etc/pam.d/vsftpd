@@ -3,10 +3,10 @@ auth required pam_listfile.so item=user sense=deny file=/etc/ftpusers onerr=succ
 
 # Customized login using htpasswd file or Berkeley DB
 auth sufficient pam_pwdfile.so pwdfile /etc/vsftpd/passwd
-auth sufficient pam_userdb.so db=/etc/vsftpd/userdb
+auth sufficient pam_userdb.so db=/etc/vsftpd/users
 
 account sufficient pam_permit.so
-account sufficient pam_userdb.so db=/etc/vsftpd/userdb
+account sufficient pam_userdb.so db=/etc/vsftpd/users
 
 # Standard pam auth including ldap
 @include common-auth

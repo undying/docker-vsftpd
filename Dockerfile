@@ -12,18 +12,15 @@ RUN apt-get update && \
     db-util=1:5.3.21~exp1ubuntu1 \
     libnss-ldap libpam-ldap \
     nscd \
-    vim zsh
+    vim zsh ssh lftp
 
 COPY etc/ /etc/
-COPY usr/ /usr/
+COPY bin/ /bin/
+COPY sbin/ /sbin/
 
-RUN mkdir -p /home/ftp /etc/vsftpd && \
-    install -m 755 -o root -g root -d /var/run/vsftpd && \
-    install -m 755 -o root -g root -d /var/run/vsftpd/empty
+EXPOSE 20 21 22 10100 10101
 
-EXPOSE 20 21 22
+VOLUME [ "/home/ftp/" ]
 
-VOLUME [ "/home/ftp/", "/etc/vsftpd/" ]
-
-CMD [ "/usr/local/sbin/init.sh" ]
+CMD [ "/sbin/init.sh" ]
 
