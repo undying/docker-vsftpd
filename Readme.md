@@ -151,6 +151,8 @@ FTP server inside docker container must be used in passive mode with hardcoded p
 
 ```
 pasv_enable=Yes
+pasv_addr_resovle=NO
+pasv_address=<ip address of docker host>
 pasv_min_port=10100
 pasv_max_port=10101
 ```
