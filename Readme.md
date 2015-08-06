@@ -84,10 +84,10 @@ you can pass all of this settings as environment to docker run:
 
 ```
 docker run -d \
-  --env=LDAP_URI=ldaps://ldap.ostrovok.ru \
-  --env=LDAP_BINDDN=cn=ProxyUser,ou=ServiceAccounts,dc=ostrovok,dc=ru \
+  --env=LDAP_URI=ldaps://ldap.corp.org \
+  --env=LDAP_BINDDN=cn=ProxyUser,ou=ServiceAccounts,dc=corp,dc=org \
   --env=LDAP_BINDPW=123456 \
-  --env=LDAP_BASE=dc=ostrovok,dc=ru \
+  --env=LDAP_BASE=dc=corp,dc=org \
   --env=LDAP_TLS_CACERTFILE=/etc/ldap/ssl/CA.crt \
   vsftpd
 ```
